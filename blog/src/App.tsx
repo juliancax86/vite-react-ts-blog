@@ -1,51 +1,31 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./App.css";
+import React from "react";
+import PostList from "./components/PostList";
+import PostItem from "./components/PostItem";
+import UserDetails from "./components/UserDetails";
+import { useTruncate } from "./hooks/useTruncate";
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-function App() {
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => {
-        console.log(response);
-        setPosts(response.data);
-      })
-      .catch((error) => console.error("Error fetching data: ", error));
-  }, []);
+const App: React.FC = () => {
+  const { truncate } = useTruncate();
 
   return (
-    <>
-      <div className="w-full bg-[#f9f9f9] py-[50px]">
-        <div className="max-w-[1240px] mx-auto">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 ss:grid-cols-1 gap-8 px-4 text-black">
-            {posts.map((post) => (
-              /*  <li key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p> */
-              <span key={post.id}>
-                <div className="bg-white rounded-xl overflow-hidden drop-shadow-md">
-                  {/* <img className='h-56 w-full object-cover' src={`http://localhost:1337${blog.attributes.coverImg.data.attributes.url}`} /> */}
-                  <div className="p-8">
-                    <h3 className="font-bold text-2xl my-1">{post.title}</h3>
-                    <p className="text-gray-600 text-xl">{post.body}</p>
-                  </div>
-                </div>
-              </span>
-            ))}
-          </div>
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold mb-4">SALVO BLOG</h1>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="col-span-2">
+          <PostList truncateLength={100} truncate={truncate} />
+        </div>
+        <div className="col-span-1">
+          <PostItem postId={1} />
         </div>
       </div>
-    </>
+      <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="col-span-2">
+          <UserDetails userId={1} />
+        </div>
+        <div className="col-span-1"></div>
+      </div>
+    </div>
   );
-}
+};
 
 export default App;
