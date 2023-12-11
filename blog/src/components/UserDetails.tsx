@@ -1,17 +1,6 @@
 import React from "react";
+import { User } from './types';
 import useFetch from "../hooks/useFetch";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-  };
-}
 
 interface Props {
   userId: number;
@@ -29,7 +18,7 @@ const UserDetails: React.FC<Props> = ({ userId }) => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
 
   return (

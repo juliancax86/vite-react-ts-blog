@@ -1,16 +1,6 @@
 import React from "react";
 import useFetch from "../hooks/useFetch";
-
-interface Comment {
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
-
-interface Props {
-  postId: number;
-}
+import { Props, Comment } from './types';
 
 const PostItem: React.FC<Props> = ({ postId }) => {
   const {
@@ -33,7 +23,7 @@ const PostItem: React.FC<Props> = ({ postId }) => {
   }
 
   if (postError || commentsError) {
-    return <div>Error: {postError?.message || commentsError?.message}</div>;
+    return <div>Error: {postError || commentsError}</div>;
   }
 
   return (

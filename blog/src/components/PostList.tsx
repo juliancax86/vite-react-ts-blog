@@ -1,19 +1,8 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetch";
+import { Post, PropsTrucate } from './types';
 
-interface Post {
-  id: number;
-  title: string;
-  userId: number;
-  body: string;
-}
-
-interface Props {
-  truncateLength: number;
-  truncate: (text: string, length: number) => string;
-}
-
-const PostList: React.FC<Props> = ({ truncateLength, truncate }) => {
+const PostList: React.FC<PropsTrucate> = ({ truncateLength, truncate }) => {
   const { data, loading, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts",
     20
@@ -24,7 +13,7 @@ const PostList: React.FC<Props> = ({ truncateLength, truncate }) => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
 
   return (
