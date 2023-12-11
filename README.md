@@ -1,5 +1,12 @@
 # vite-react-ts-blog
+This project is a simple blog that consumes the [JsonPlaceholder API](https://jsonplaceholder.typicode.com/)
 
+## Technologies
+1. [React](https://react.dev/)
+2. [Typescript](https://www.typescriptlang.org/)
+3. [Vite](https://vitejs.dev/)
+4. [Tailwind](https://tailwindcss.com/)
+5. [Vitest](https://vitest.dev/)
 
 ## Clone the Project
 To clone the project, follow these steps:
