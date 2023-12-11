@@ -36,7 +36,7 @@ To run the project, follow these steps:
 npm run dev
 ```
 
-This will start the development server. Open your web browser and navigate to http://localhost:3000 to view the application.
+This will start the development server. Open your web browser and navigate to http://localhost:5173/ to view the application.
 
 ## Run the Tests
 To run the tests, follow these steps:
