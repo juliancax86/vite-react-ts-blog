@@ -17,6 +17,14 @@ To clone the project, follow these steps:
 ```
 git clone https://github.com/example/react-vite-jest-project.git
 ```
+## Navigate to the directory project
+```
+cd react-vite-jest-project
+```
+Access to the blog directory.
+```
+cd blog
+```
 
 ## Install the Project
 To install the project, follow these steps:
